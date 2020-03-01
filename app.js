@@ -1,6 +1,9 @@
 const express = require('express');
 const app = express();
 
+
+var port = process.env.PORT || 3000;
+
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
 
@@ -19,8 +22,11 @@ app.get('/register', (req, res) => {
 app.get('/login', (req, res) => {
     res.render('login');
 });
-app.listen(3000, () => {
-    console.log('Example app listening on port 3000!');
-});
 
-//Run app, then load http://localhost:3000 in a browser to see the output.
+app.listen(port, (err)=>{
+    if(err){
+        console.log(`Error: ${err.message}`)
+    }else{
+        console.log(`App running on port ${port}`);
+    }
+});
