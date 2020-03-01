@@ -23,6 +23,16 @@ app.get('/login', (req, res) => {
     res.render('login');
 });
 
+app.get('/hot', (req, res) => {
+    res.render("hot");
+});
+app.get('/football', (req, res) => {
+    res.render("football");
+});
+app.get('/hockey', (req, res) => {
+    res.render("hockey");
+});
+
 app.listen(port, (err)=>{
     if(err){
         console.log(`Error: ${err.message}`)

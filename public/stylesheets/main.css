@@ -1,11 +1,7 @@
 body{
-    background-color: #e9ecef;
+    background-color: whitesmoke;
     margin-bottom: 90px;
     font-family: 'Roboto';
-    
-}
-a{
-    color: white;
 }
 a:hover{
     text-decoration: none;
@@ -20,7 +16,7 @@ a:hover{
 .register-login-form h1{
     margin-bottom: 40px;
 }
-.jumbotron{
+.content{
     padding: 0;
     margin-top: 100px;
 }
@@ -70,7 +66,7 @@ a:hover{
     text-align: center;
   }
   .wrap-image:hover .image {
-    opacity: 0.7;
+    opacity: 0.8;
   }
   .wrap-image:hover .middle {
     opacity: 1;
@@ -84,3 +80,55 @@ a:hover{
   .text a{
       color: white;
   }
+  
+  .home-bg{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    z-index: -999;
+    /* background-image: url(https://images.unsplash.com/photo-1472289065668-ce650ac443d2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80); */
+    /* background-image: url(https://images.unsplash.com/photo-1515895309288-a3815ab7cf81?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80); */
+    background-image: url(https://images.unsplash.com/photo-1530543787849-128d94430c6b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);
+  }
+
+  /* -------------TABLES------------ */
+.main-container {
+    margin-top: 7%;
+}
+.hot-flame {
+    color: #B22222;
+}
+.sport-headding {
+    text-align: center;
+    padding-bottom: 5%;
+}
+
+.img-flag {
+    max-width: 1.5rem;
+}
+
+.green-dot {
+    height: 15px;
+    width: 15px;
+    background-color: green;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.red-dot {
+    height: 15px;
+    width: 15px;
+    background-color: red;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.spinner-border {
+    width: 1rem;
+    height: 1rem;
+}

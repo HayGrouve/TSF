@@ -1,0 +1,71 @@
+<%- include("./partials/header") %>
+
+<!-- Content -->
+<section class="container main-container">
+    <h1 class="sport-headding">Our <i class="fas fa-hockey-puck"></i> Hokey Forecasts</h1>
+    <!-- Start of table -->
+    <table class="table table-hover table-dark">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Date</th>
+                <th scope="col">Time</th>
+                <th scope="col">Host</th>
+                <th scope="col">Guest</th>
+                <th scope="col">Coef</th>
+                <th scope="col">Forecast</th>
+                <th scope="col">Result</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>18.10.19</td>
+                <td>22:15</td>
+                <td><img class="img-flag"
+                        src="https://images-na.ssl-images-amazon.com/images/I/51YCk1KrXWL._SL1414_.jpg"
+                        alt="Flag_of_Canada"> Toronto Maple Leafs</td>
+                <td><img class="img-flag"
+                        src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1200px-Flag_of_the_United_States.svg.png"
+                        alt="Flag_of_US"> New York Rangers</td>
+                <td>1.56</td>
+                <td>2</td>
+                <td>
+                    <div class="spinner-border text-secondary" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>17.10.19</td>
+                <td>17:00</td>
+                <td><img class="img-flag" src="https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Colombia.svg"
+                        alt="Flag_of_Columbia"> Vancouver Canucks</td>
+                <td><img class="img-flag"
+                        src="https://images-na.ssl-images-amazon.com/images/I/51YCk1KrXWL._SL1414_.jpg"
+                        alt="Flag_of_the_Canada"> Calgary Flames</td>
+                <td>2.02 / 2.67</td>
+                <td>1X</td>
+                <td><span class="green-dot"></span></td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>16.10.19</td>
+                <td>8:30</td>
+                <td><img class="img-flag"
+                        src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1200px-Flag_of_the_United_States.svg.png"
+                        alt="Flag_of_US"> Vegas Golden Knights</td>
+                <td><img class="img-flag"
+                        src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1200px-Flag_of_the_United_States.svg.png"
+                        alt="Flag_of_US"> Carolina Hurricanes</td>
+                <td>3.87</td>
+                <td>2</td>
+                <td><span class="red-dot"></span></td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- End of table  -->
+</section>
+
+<%- include("./partials/footer") %>
