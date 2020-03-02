@@ -2,6 +2,7 @@ body{
     background-color: whitesmoke;
     margin-bottom: 90px;
     font-family: 'Roboto';
+    margin-top: 100px;
 }
 a:hover{
     text-decoration: none;
@@ -131,4 +132,8 @@ a:hover{
 .spinner-border {
     width: 1rem;
     height: 1rem;
+}
+#flash{
+  width: 400px;
+  text-align: center;
 }

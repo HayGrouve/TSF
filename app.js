@@ -54,25 +54,17 @@ app.use(indexRoutes);
 
 
 app.get('/home', (req, res) => {
-    res.render('home');
-});
-
-app.get('/register', (req, res) => {
-    res.render('register');
-});
-
-app.get('/login', (req, res) => {
-    res.render('login');
+    res.render('home', {page: 'home'});
 });
 
 app.get('/hot', (req, res) => {
-    res.render("hot");
+    res.render("hot", {page: 'hot'});
 });
 app.get('/football', (req, res) => {
-    res.render("football");
+    res.render("football", {page: 'football'});
 });
 app.get('/hockey', (req, res) => {
-    res.render("hockey");
+    res.render("hockey", {page: 'hockey'});
 });
 
 app.listen(port, (err) => {

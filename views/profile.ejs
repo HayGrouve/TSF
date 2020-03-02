@@ -1,0 +1,31 @@
+<%- include("./partials/header") %>
+
+<h1><%= user.username %>'s Profile</h1>
+<div class="row">
+    <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="<%= user.avatar %>" alt="User image">
+            <div class="card-body">
+                <h5 class="card-title"><%= user.firstname %> <%= user.lastname %>, <%= user.age %></h5>
+                <div class="card-text">
+                    <section> <%= user.description %> </section>
+                    <hr>
+                </div>
+                <a href="mailto:<%= user.email %>"><%= user.email %></a>
+                <% if(currentUser && user._id.equals(currentUser._id) || currentUser && currentUser.isAdmin ) { %>
+                <div style="float: right;">
+                    <a class="btn btn-sm btn-warning" href="/users/<%= user.id %>/edit"><i class="fas fa-edit"></i>
+                        Edit</a>
+                    <form style="display: inline;" action="/users/<%= user._id %>?_method=DELETE" method="post">
+                        <button class="btn btn-sm btn-danger"
+                            onclick="return confirm('Are you sure you want to delete your profile?');"><i
+                                class="fas fa-trash-alt"></i></button>
+                    </form>
+                </div>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include("./partials/footer") %>
