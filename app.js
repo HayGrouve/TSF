@@ -6,10 +6,13 @@ const express = require("express"),
     passport = require("passport"),
     LocalStrategy = require("passport-local"),
     User = require("./models/user"),
+    middleware = require("./middleware/index"),
     methodOverride = require("method-override");
 
 //REQUIRING ROUTES
 var indexRoutes = require("./routes/index");
+var footballRoutes = require("./routes/football");
+var hockeyRoutes = require("./routes/hockey");
 
 var url = process.env.DATABASEURL || "mongodb://localhost/tsf";
 var port = process.env.PORT || 3000;
@@ -51,20 +54,16 @@ app.use((req, res, next) => {
 });
 
 app.use(indexRoutes);
+app.use(footballRoutes);
+app.use(hockeyRoutes);
 
-
-app.get('/home', (req, res) => {
-    res.render('home', {page: 'home'});
+app.get('/hot', middleware.isLoggedIn, (req, res) => {
+    res.render("hot", { page: 'hot' });
 });
 
-app.get('/hot', (req, res) => {
-    res.render("hot", {page: 'hot'});
-});
-app.get('/football', (req, res) => {
-    res.render("football", {page: 'football'});
-});
-app.get('/hockey', (req, res) => {
-    res.render("hockey", {page: 'hockey'});
+app.get('*', (req, res) => {
+    req.flash('error', 'Address not found');
+    res.redirect('/home');
 });
 
 app.listen(port, (err) => {

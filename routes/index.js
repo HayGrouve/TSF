@@ -12,6 +12,10 @@ router.get('/', (req, res) => {
     res.render("landing");
 });
 
+router.get('/home', (req, res) => {
+    res.render('home', { page: 'home' });
+});
+
 //SHOW REGISTER FORM
 router.get('/register', (req, res) => {
     res.render("register", { page: "register" });
@@ -33,7 +37,8 @@ router.post('/register', (req, res) => {
     User.register(newUser, req.body.password, (err, user) => {
         if (err) {
             console.log(err);
-            return res.render("register", { error: err.message });
+            req.flash('error', 'User with that username or password allready exists');
+            res.redirect('/register');
         }
         passport.authenticate("local")(req, res, () => {
             req.flash("success", "Welcome to Top Sport Forecast " + user.username + " !");

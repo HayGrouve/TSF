@@ -32,12 +32,24 @@
                 <li class="nav-item <%= typeof page !== 'undefined' && page === 'hot' ? 'active' : '' %>">
                     <a class="nav-link" href="/hot"><i class="fab fa-hotjar hot-flame"></i> HOT</a>
                 </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-history"></i> History
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item <%= typeof page !== 'undefined' && page === 'h_football' ? 'active' : '' %>" href="/h_football"><i class="fas fa-futbol"></i> Football</a>
+                        <a class="dropdown-item <%= typeof page !== 'undefined' && page === 'h_hockey' ? 'active' : '' %>" href="/h_hockey"><i class="fas fa-hockey-puck"></i> Hockey</a>
+                    </div>
+                </li>
+                <% if(currentUser){ %>
                 <li class="nav-item <%= typeof page !== 'undefined' && page === 'football' ? 'active' : '' %>">
                     <a class="nav-link" href="/football"><i class="fas fa-futbol"></i> Football</a>
                 </li>
                 <li class="nav-item <%= typeof page !== 'undefined' && page === 'hockey' ? 'active' : '' %>">
                     <a class="nav-link" href="/hockey"><i class="fas fa-hockey-puck"></i> Hockey</a>
                 </li>
+                <% } %>
             </ul>
             <ul class="navbar-nav">
                 <% if(!currentUser){ %>

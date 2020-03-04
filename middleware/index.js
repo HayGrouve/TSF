@@ -11,7 +11,7 @@ middlewareObj.checkUserOwnership = function (req, res, next) {
             if (err || !foundUser) {
                 req.flash("error", "User not found !");
                 console.log(err);
-                res.redirect("/campgrounds");
+                res.redirect("/home");
             }
             else {
                 //does the user own itself
@@ -19,7 +19,7 @@ middlewareObj.checkUserOwnership = function (req, res, next) {
                     next();
                 } else {
                     req.flash("error", "User not found !");
-                    res.redirect("/campgrounds");
+                    res.redirect("/home");
                 }
             }
         });
