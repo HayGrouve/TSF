@@ -6,6 +6,7 @@ const express = require("express"),
     passport = require("passport"),
     LocalStrategy = require("passport-local"),
     User = require("./models/user"),
+    Hot = require('./models/hot'),
     middleware = require("./middleware/index"),
     methodOverride = require("method-override");
 
@@ -57,9 +58,18 @@ app.use(indexRoutes);
 app.use(footballRoutes);
 app.use(hockeyRoutes);
 
+
 app.get('/hot', middleware.isLoggedIn, (req, res) => {
-    res.render("hot", { page: 'hot' });
+    Hot.find({}, (err, foundHot) => {
+        if (err || !foundHot) {
+            req.flash('error', 'No items found');
+            res.redirect('/home');
+        } else {
+            res.render("hot", { page: 'hot', footballTabble: foundHot });
+        }
+    }).limit(30);
 });
+
 
 app.get('*', (req, res) => {
     req.flash('error', 'Address not found');

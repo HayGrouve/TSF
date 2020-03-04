@@ -1,9 +1,10 @@
 var express = require("express"),
     router = express.Router(),
     Football = require('../models/football'),
+    Football_h = require('../models/h_football'),
     middleware = require("../middleware/index");
 
-// Football.create({
+// Football_h.create({
 //     host: 'Barcelona',
 //     guest: 'Mayorca',
 //     coef: 1.7,
@@ -15,7 +16,7 @@ var express = require("express"),
 //     } else {
 //         console.log(football);
 //     }
-// });
+// });      
 
 router.get('/football', middleware.isLoggedIn, (req, res) => {
     Football.find({}, (err, foundFootball) => {
@@ -28,8 +29,19 @@ router.get('/football', middleware.isLoggedIn, (req, res) => {
     }).limit(30);
 });
 
+router.get('/football/new', (req, res)=>{
+    res.render('football_new');
+});
+
 router.get('/h_football', (req, res) => {
-    res.render("h_football", { page: 'h_football' });
+    Football_h.find({}, (err, foundFootball_h) => {
+        if (err || !foundFootball_h) {
+            req.flash('error', 'No items found');
+            res.redirect('/home');
+        } else {
+            res.render("h_football", { page: 'h_football', footballTabble: foundFootball_h });
+        }
+    }).limit(30);
 });
 
 module.exports = router;
