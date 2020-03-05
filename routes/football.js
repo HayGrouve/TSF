@@ -29,8 +29,14 @@ router.get('/football', middleware.isLoggedIn, (req, res) => {
     }).limit(30);
 });
 
-router.get('/football/new', (req, res)=>{
+router.get('/football/new', (req, res) => {
     res.render('football_new');
+});
+
+router.post('/football/new', (req, res) => {
+    var forecastArr = [req.body.row];
+    var rowObj = req.body.row
+    console.log(forecastArr);
 });
 
 router.get('/h_football', (req, res) => {

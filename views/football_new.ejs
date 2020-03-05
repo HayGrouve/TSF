@@ -4,7 +4,7 @@
 <section>
     <h1 class="sport-headding">Add <i class="fas fa-futbol"></i> Football Forecasts</h1>
     <!-- Start of table  -->
-    <form action="#">
+    <form action="/football/new" method="POST">
         <table class="table table-hover table-dark">
             <thead>
                 <tr>
@@ -18,8 +18,8 @@
             </thead>
             <tbody>
                 <tr>
-                    <td><input type="date" name="date" required></td>
-                    <td><input type="time" name="time" required></td>
+                    <td><input type="date" name="row[date]" required></td>
+                    <td><input type="time" name="row[time]" required></td>
                     <td>
                         <select name="flag">
                             <option value="https://upload.wikimedia.org/wikipedia/en/9/9a/Flag_of_Spain.svg">
@@ -29,7 +29,7 @@
                                 Flag_of_England
                             </option>
                         </select>
-                        <input type="text" name="host" placeholder="Host" required>
+                        <input type="text" name="row[host]" placeholder="Host" required>
                     </td>
                     <td>
                         <select name="flag">
@@ -40,10 +40,38 @@
                                 Flag_of_England
                             </option>
                         </select>
-                        <input type="text" name="guest" placeholder="Guest" required>
+                        <input type="text" name="row[guest]" placeholder="Guest" required>
                     </td>
-                    <td><input type="number" name="coef" placeholder="Coef" min="1" step="0.05" required></td>
-                    <td><input type="text" name="forecast" placeholder="Forecast" required></td>
+                    <td><input type="number" name="row[coef]" placeholder="Coef" min="1" step="0.05" required></td>
+                    <td><input type="text" name="row[forecast]" placeholder="Forecast" required></td>
+                </tr>
+                <tr>
+                    <td><input type="date" name="row[date]" required></td>
+                    <td><input type="time" name="row[time]" required></td>
+                    <td>
+                        <select name="flag">
+                            <option value="https://upload.wikimedia.org/wikipedia/en/9/9a/Flag_of_Spain.svg">
+                                Flag_of_Spain
+                            </option>
+                            <option value="https://upload.wikimedia.org/wikipedia/en/b/be/Flag_of_England.svg">
+                                Flag_of_England
+                            </option>
+                        </select>
+                        <input type="text" name="row[host]" placeholder="Host" required>
+                    </td>
+                    <td>
+                        <select name="flag">
+                            <option value="https://upload.wikimedia.org/wikipedia/en/9/9a/Flag_of_Spain.svg">
+                                Flag_of_Spain
+                            </option>
+                            <option value="https://upload.wikimedia.org/wikipedia/en/b/be/Flag_of_England.svg">
+                                Flag_of_England
+                            </option>
+                        </select>
+                        <input type="text" name="row[guest]" placeholder="Guest" required>
+                    </td>
+                    <td><input type="number" name="row[coef]" placeholder="Coef" min="1" step="0.05" required></td>
+                    <td><input type="text" name="row[forecast]" placeholder="Forecast" required></td>
                 </tr>
             </tbody>
         </table>
