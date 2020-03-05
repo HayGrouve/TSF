@@ -6,8 +6,8 @@ var FootballSchema = new mongoose.Schema({
     coef: Number,
     forecast: String,
     result: Boolean,
-    date: { type: Date, default: Date.now },
-    time: { type: Date, default: Date.now }
+    date: String,
+    time: String
 });
 
 module.exports = mongoose.model("Football", FootballSchema);

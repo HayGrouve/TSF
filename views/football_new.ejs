@@ -17,6 +17,7 @@
                 </tr>
             </thead>
             <tbody>
+                <% var id=0 %>
                 <tr>
                     <td><input type="date" name="row[date]" required></td>
                     <td><input type="time" name="row[time]" required></td>
@@ -44,6 +45,7 @@
                     </td>
                     <td><input type="number" name="row[coef]" placeholder="Coef" min="1" step="0.05" required></td>
                     <td><input type="text" name="row[forecast]" placeholder="Forecast" required></td>
+                    <% id++ %>
                 </tr>
                 <tr>
                     <td><input type="date" name="row[date]" required></td>
@@ -72,9 +74,11 @@
                     </td>
                     <td><input type="number" name="row[coef]" placeholder="Coef" min="1" step="0.05" required></td>
                     <td><input type="text" name="row[forecast]" placeholder="Forecast" required></td>
+                    <% id++ %>
                 </tr>
             </tbody>
         </table>
+        <input type="number" name="id" style="display: none;" value="<%= id %>">
         <!-- End of table  -->
         <button class="btn btn-lg btn-success">Submit</button>
     </form>
