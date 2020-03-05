@@ -22,8 +22,9 @@
                         <% footballTabble.forEach(row =>{ id++%>
                         <tr>
                                 <th scope="row"><%= id %></th>
-                                <td><%= row.date %></td>
-                                <td><%= row.time %></td>
+                                <td><%= row.date.getDate() %>/<%= row.date.getMonth() %>/<%= row.date.getFullYear() %>
+                                </td>
+                                
                                 <td><img class="img-flag"
                                                 src="https://upload.wikimedia.org/wikipedia/en/9/9a/Flag_of_Spain.svg"
                                                 alt="Flag_of_Spain"> <%= row.host %></td>
