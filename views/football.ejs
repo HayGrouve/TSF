@@ -24,7 +24,7 @@
                                 <th scope="row"><%= id %></th>
                                 <td><%= row.date.getDate() %>/<%= row.date.getMonth() %>/<%= row.date.getFullYear() %>
                                 </td>
-                                
+                                <td><%= row.date.getHours() %>:<%= row.date.getMinutes() %></td>
                                 <td><img class="img-flag"
                                                 src="https://upload.wikimedia.org/wikipedia/en/9/9a/Flag_of_Spain.svg"
                                                 alt="Flag_of_Spain"> <%= row.host %></td>

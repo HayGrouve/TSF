@@ -70,6 +70,33 @@ app.get('/hot', middleware.isLoggedIn, (req, res) => {
     }).limit(30);
 });
 
+app.get('/hot/new', middleware.isAdmin, (req, res) => {
+    res.render('hot_new');
+});
+
+app.post('/hot/new', middleware.isAdmin, (req, res) => {
+    var forecastArr = [];
+    for (var i = 0; i < req.body.id; i++) {
+        var obj = {
+            date: Date.parse(req.body.row.date[i]),
+            host: req.body.row.host[i],
+            guest: req.body.row.guest[i],
+            coef: Number.parseFloat(req.body.row.coef[i]),
+            forecast: req.body.row.forecast[i],
+        }
+        forecastArr.push(obj);
+    }
+    Hot.insertMany(forecastArr, (err, created) => {
+        if (err || !created) {
+            req.flash('error', 'Error creating hot forecasts');
+            res.redirect('/profile');
+        } else {
+            req.flash('success', 'Forecast created!');
+            res.redirect('/hot');
+        }
+    });
+});
+
 
 app.get('*', (req, res) => {
     req.flash('error', 'Address not found');

@@ -6,8 +6,7 @@ var HockeySchema_h = new mongoose.Schema({
     coef: Number,
     forecast: String,
     result: Boolean,
-    date: { type: Date, default: Date.now },
-    time: { type: Date, default: Date.now }
+    date: { type: Date, default: Date.now }
 });
 
 module.exports = mongoose.model("Hockey_h", HockeySchema_h);

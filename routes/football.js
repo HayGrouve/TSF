@@ -29,16 +29,15 @@ router.get('/football', middleware.isLoggedIn, (req, res) => {
     }).limit(30);
 });
 
-router.get('/football/new', (req, res) => {
+router.get('/football/new', middleware.isAdmin, (req, res) => {
     res.render('football_new');
 });
 
-router.post('/football/new', (req, res) => {
+router.post('/football/new', middleware.isAdmin, (req, res) => {
     var forecastArr = [];
     for (var i = 0; i < req.body.id; i++) {
         var obj = {
             date: Date.parse(req.body.row.date[i]),
-            time: req.body.row.time[i],
             host: req.body.row.host[i],
             guest: req.body.row.guest[i],
             coef: Number.parseFloat(req.body.row.coef[i]),
@@ -46,18 +45,15 @@ router.post('/football/new', (req, res) => {
         }
         forecastArr.push(obj);
     }
-    console.log(req.body.row);
-    console.log('------------------------------------------------');
-    console.log(forecastArr);
-    // Football.insertMany(forecastArr, (err, created) => {
-    //     if (err || !created) {
-    //         req.flash('error', 'Error creating football forecasts');
-    //         res.redirect('/profile');
-    //     } else {
-    //         req.flash('success', 'Forecast created!');
-    //         res.redirect('/football');
-    //     }
-    // });
+    Football.insertMany(forecastArr, (err, created) => {
+        if (err || !created) {
+            req.flash('error', 'Error creating football forecasts');
+            res.redirect('/profile');
+        } else {
+            req.flash('success', 'Forecast created!');
+            res.redirect('/football');
+        }
+    });
 });
 
 router.get('/h_football', (req, res) => {

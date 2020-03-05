@@ -18,28 +18,26 @@
             </tr>
         </thead>
         <tbody>
-                <% var id=0%>
-                <% footballTabble.forEach(row =>{ id++%>
-                <tr>
-                        <th scope="row"><%= id %></th>
-                        <td><%= row.date.getDate() %>/<%= row.date.getMonth() %>/<%= row.date.getFullYear() %>
-                        </td>
-                        <td><%= row.time.getHours() %>:<%= row.time.getMinutes() %></td>
-                        <td><img class="img-flag"
-                                        src="https://upload.wikimedia.org/wikipedia/en/9/9a/Flag_of_Spain.svg"
-                                        alt="Flag_of_Spain"> <%= row.host %></td>
-                        <td><img class="img-flag"
-                                        src="https://upload.wikimedia.org/wikipedia/en/b/be/Flag_of_England.svg"
-                                        alt="Flag_of_England"> <%= row.guest %></td>
-                        <td><%= row.coef %></td>
-                        <td><%= row.forecast%></td>
-                        <% if(row.result){ %>
-                        <td><span class="green-dot"></span></td>
-                        <% } else{%>
-                        <td><span class="red-dot"></span></td>
-                        <% } %>
-                </tr>
-                <% }); %>
+            <% var id=0%>
+            <% footballTabble.forEach(row =>{ id++%>
+            <tr>
+                <th scope="row"><%= id %></th>
+                <td><%= row.date.getDate() %>/<%= row.date.getMonth() %>/<%= row.date.getFullYear() %>
+                </td>
+                <td><%= row.date.getHours() %>:<%= row.date.getMinutes() %></td>
+                <td><img class="img-flag" src="https://upload.wikimedia.org/wikipedia/en/9/9a/Flag_of_Spain.svg"
+                        alt="Flag_of_Spain"> <%= row.host %></td>
+                <td><img class="img-flag" src="https://upload.wikimedia.org/wikipedia/en/b/be/Flag_of_England.svg"
+                        alt="Flag_of_England"> <%= row.guest %></td>
+                <td><%= row.coef %></td>
+                <td><%= row.forecast%></td>
+                <% if(row.result){ %>
+                <td><span class="green-dot"></span></td>
+                <% } else{%>
+                <td><span class="red-dot"></span></td>
+                <% } %>
+            </tr>
+            <% }); %>
         </tbody>
     </table>
     <!-- End of table  -->

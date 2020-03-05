@@ -10,7 +10,6 @@ middlewareObj.checkUserOwnership = function (req, res, next) {
         User.findById(req.user.id, (err, foundUser) => {
             if (err || !foundUser) {
                 req.flash("error", "User not found !");
-                console.log(err);
                 res.redirect("/home");
             }
             else {
@@ -32,6 +31,26 @@ middlewareObj.checkUserOwnership = function (req, res, next) {
 middlewareObj.isLoggedIn = function (req, res, next) {
     if (req.isAuthenticated()) {
         return next();
+    }
+    req.flash("error", "Please Login First !");
+    res.redirect("/login");
+}
+
+middlewareObj.isAdmin = function (req, res, next) {
+    if (req.isAuthenticated()) {
+        User.findById(req.user._id, (err, foundUser) => {
+            console.log(req.user._id);
+            if (err || !foundUser) {
+                req.flash("error", "User not found !");
+                res.redirect("/home");
+            } else {
+                if (foundUser.isAdmin) {
+                    next();
+                }
+                req.flash("error", "Please login with admin account!");
+                res.redirect("/login");
+            }
+        });
     }
     req.flash("error", "Please Login First !");
     res.redirect("/login");
