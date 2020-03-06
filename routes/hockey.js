@@ -29,11 +29,11 @@ router.get('/hockey', middleware.isLoggedIn, (req, res) => {
     }).limit(30);
 });
 
-router.get('/hockey/new', middleware.isAdmin, (req, res) => {
+router.get('/hockey/new', (req, res) => {
     res.render('hockey_new');
 });
 
-router.post('/hockey/new', middleware.isAdmin, (req, res) => {
+router.post('/hockey/new', (req, res) => {
     var forecastArr = [];
     for (var i = 0; i < req.body.id; i++) {
         var obj = {

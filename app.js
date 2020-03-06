@@ -70,11 +70,11 @@ app.get('/hot', middleware.isLoggedIn, (req, res) => {
     }).limit(30);
 });
 
-app.get('/hot/new', middleware.isAdmin, (req, res) => {
+app.get('/hot/new', (req, res) => {
     res.render('hot_new');
 });
 
-app.post('/hot/new', middleware.isAdmin, (req, res) => {
+app.post('/hot/new', (req, res) => {
     var forecastArr = [];
     for (var i = 0; i < req.body.id; i++) {
         var obj = {
