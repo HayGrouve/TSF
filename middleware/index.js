@@ -40,28 +40,15 @@ middlewareObj.isAdmin = function (req, res, next) {
     if (req.isAuthenticated()) {
         if (req.user.isAdmin) {
             next();
+        } else {
+            req.flash("error", "Please login with admin account!");
+            res.redirect("/login");
         }
-        req.flash("error", "Please login with admin account!");
+    } else {
+        req.flash("error", "Please Login First !");
         res.redirect("/login");
     }
-    req.flash("error", "Please Login First !");
-    res.redirect("/login");
 }
-
-
-// User.findById(req.user._id, (err, foundUser) => {
-//     console.log(req.user._id);
-//     if (err || !foundUser) {
-//         req.flash("error", "User not found !");
-//         res.redirect("/home");
-//     } else {
-//         if (foundUser.isAdmin) {
-//             next();
-//         }
-//         req.flash("error", "Please login with admin account!");
-//         res.redirect("/login");
-//     }
-// });
 
 // middlewareObj.checkCommentOwnership = function (req, res, next) {
 //     // is someone logged in

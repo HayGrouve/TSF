@@ -2,7 +2,8 @@
 
 <!-- Content -->
 <section class="container main-container">
-    <h1 class="sport-headding">Our <i class="fas fa-hockey-puck"></i> Hokey Forecasts</h1>
+    <h1 class="sport-headding">Our <i class="fab fa-hotjar hot-flame"></i> HOT <i class="fas fa-hockey-puck"></i> Hockey
+        Forecasts</h1>
     <!-- Start of table -->
     <table class="table table-hover table-dark">
         <thead>
@@ -20,7 +21,7 @@
         </thead>
         <tbody>
             <% var id=0%>
-            <% hockeyTabble.forEach(row =>{ id++%>
+            <% footballTabble.forEach(row =>{ id++%>
             <tr>
                 <th scope="row"><%= id %></th>
                 <td><%= row.date.getDate() %>/<%= row.date.getMonth() %>/<%= row.date.getFullYear() %>
@@ -42,7 +43,7 @@
             <% }); %>
         </tbody>
     </table>
-    <!-- End of table  -->
+    <!-- End of table -->
 </section>
 
 <%- include("./partials/footer") %>

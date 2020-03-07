@@ -9,6 +9,7 @@
             <thead>
                 <tr>
                     <th scope="col">Date</th>
+                    <th scope="col">Type</th>
                     <th scope="col">Host</th>
                     <th scope="col">Guest</th>
                     <th scope="col">Coef</th>
@@ -19,6 +20,7 @@
                 <% var id=0 %>
                 <tr>
                     <td><input type="datetime-local" name="row[date]" required></td>
+                    <td><input class="forecast-type-coef" type="text" name="row[type]" required></td>
                     <td>
                         <select name="flag">
                             <option value="https://upload.wikimedia.org/wikipedia/en/9/9a/Flag_of_Spain.svg">
@@ -41,12 +43,13 @@
                         </select>
                         <input type="text" name="row[guest]" placeholder="Guest" required>
                     </td>
-                    <td><input type="number" name="row[coef]" placeholder="Coef" min="1" step="0.01" required></td>
-                    <td><input type="text" name="row[forecast]" placeholder="Forecast" required></td>
+                    <td><input class="forecast-type-coef" type="number" name="row[coef]" placeholder="Coef" min="1" step="0.01" required></td>
+                    <td><input class="forecast-type-coef" type="text" name="row[forecast]" placeholder="Forecast" required></td>
                     <% id++ %>
                 </tr>
                 <tr>
                     <td><input type="datetime-local" name="row[date]" required></td>
+                    <td><input class="forecast-type-coef" type="text" name="row[type]" required></td>
                     <td>
                         <select name="flag">
                             <option value="https://upload.wikimedia.org/wikipedia/en/9/9a/Flag_of_Spain.svg">
@@ -69,12 +72,13 @@
                         </select>
                         <input type="text" name="row[guest]" placeholder="Guest" required>
                     </td>
-                    <td><input type="number" name="row[coef]" placeholder="Coef" min="1" step="0.01" required></td>
-                    <td><input type="text" name="row[forecast]" placeholder="Forecast" required></td>
+                    <td><input class="forecast-type-coef" type="number" name="row[coef]" placeholder="Coef" min="1" step="0.01" required></td>
+                    <td><input class="forecast-type-coef" type="text" name="row[forecast]" placeholder="Forecast" required></td>
                     <% id++ %>
                 </tr>
                 <tr>
                     <td><input type="datetime-local" name="row[date]" required></td>
+                    <td><input class="forecast-type-coef" type="text" name="row[type]" required></td>
                     <td>
                         <select name="flag">
                             <option value="https://upload.wikimedia.org/wikipedia/en/9/9a/Flag_of_Spain.svg">
@@ -97,8 +101,8 @@
                         </select>
                         <input type="text" name="row[guest]" placeholder="Guest" required>
                     </td>
-                    <td><input type="number" name="row[coef]" placeholder="Coef" min="1" step="0.01" required></td>
-                    <td><input type="text" name="row[forecast]" placeholder="Forecast" required></td>
+                    <td><input class="forecast-type-coef" type="number" name="row[coef]" placeholder="Coef" min="1" step="0.01" required></td>
+                    <td><input class="forecast-type-coef" type="text" name="row[forecast]" placeholder="Forecast" required></td>
                     <% id++ %>
                 </tr>
             </tbody>

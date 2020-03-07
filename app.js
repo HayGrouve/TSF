@@ -6,7 +6,8 @@ const express = require("express"),
     passport = require("passport"),
     LocalStrategy = require("passport-local"),
     User = require("./models/user"),
-    Hot = require('./models/hot'),
+    Hot_football = require('./models/hot_football'),
+    Hot_hockey = require('./models/hot_hockey'),
     middleware = require("./middleware/index"),
     methodOverride = require("method-override");
 
@@ -59,26 +60,27 @@ app.use(footballRoutes);
 app.use(hockeyRoutes);
 
 
-app.get('/hot', middleware.isLoggedIn, (req, res) => {
-    Hot.find({}, (err, foundHot) => {
+app.get('/hot_football', middleware.isLoggedIn, (req, res) => {
+    Hot_football.find({}, (err, foundHot) => {
         if (err || !foundHot) {
             req.flash('error', 'No items found');
             res.redirect('/home');
         } else {
-            res.render("hot", { page: 'hot', footballTabble: foundHot });
+            res.render("hot_football", { page: 'hot_football', footballTabble: foundHot });
         }
     }).limit(30);
 });
 
-app.get('/hot/new', (req, res) => {
-    res.render('hot_new');
+app.get('/hot_football/new', middleware.isAdmin, (req, res) => {
+    res.render('hot_football_new');
 });
 
-app.post('/hot/new', (req, res) => {
+app.post('/hot_football/new', middleware.isAdmin, (req, res) => {
     var forecastArr = [];
     for (var i = 0; i < req.body.id; i++) {
         var obj = {
             date: Date.parse(req.body.row.date[i]),
+            type: req.body.row.type[i],
             host: req.body.row.host[i],
             guest: req.body.row.guest[i],
             coef: Number.parseFloat(req.body.row.coef[i]),
@@ -86,17 +88,55 @@ app.post('/hot/new', (req, res) => {
         }
         forecastArr.push(obj);
     }
-    Hot.insertMany(forecastArr, (err, created) => {
+    Hot_football.insertMany(forecastArr, (err, created) => {
         if (err || !created) {
             req.flash('error', 'Error creating hot forecasts');
             res.redirect('/profile');
         } else {
             req.flash('success', 'Forecast created!');
-            res.redirect('/hot');
+            res.redirect('/hot_football');
         }
     });
 });
 
+app.get('/hot_hockey', middleware.isLoggedIn, (req, res) => {
+    Hot_hockey.find({}, (err, foundHot) => {
+        if (err || !foundHot) {
+            req.flash('error', 'No items found');
+            res.redirect('/home');
+        } else {
+            res.render("hot_hockey", { page: 'hot_hockey', footballTabble: foundHot });
+        }
+    }).limit(30);
+});
+
+app.get('/hot_hockey/new', middleware.isAdmin, (req, res) => {
+    res.render('hot_hockey_new');
+});
+
+app.post('/hot_hockey/new', middleware.isAdmin, (req, res) => {
+    var forecastArr = [];
+    for (var i = 0; i < req.body.id; i++) {
+        var obj = {
+            date: Date.parse(req.body.row.date[i]),
+            type: req.body.row.type[i],
+            host: req.body.row.host[i],
+            guest: req.body.row.guest[i],
+            coef: Number.parseFloat(req.body.row.coef[i]),
+            forecast: req.body.row.forecast[i],
+        }
+        forecastArr.push(obj);
+    }
+    Hot_hockey.insertMany(forecastArr, (err, created) => {
+        if (err || !created) {
+            req.flash('error', 'Error creating hot forecasts');
+            res.redirect('/profile');
+        } else {
+            req.flash('success', 'Forecast created!');
+            res.redirect('/hot_hockey');
+        }
+    });
+});
 
 app.get('*', (req, res) => {
     req.flash('error', 'Address not found');

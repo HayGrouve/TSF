@@ -11,6 +11,7 @@
                 <th scope="col">#</th>
                 <th scope="col">Date</th>
                 <th scope="col">Time</th>
+                <th scope="col">Type</th>
                 <th scope="col">Host</th>
                 <th scope="col">Guest</th>
                 <th scope="col">Coef</th>
@@ -26,6 +27,7 @@
                 <td><%= row.date.getDate() %>/<%= row.date.getMonth() %>/<%= row.date.getFullYear() %>
                 </td>
                 <td><%= row.date.getHours() %>:<%= row.date.getMinutes() %></td>
+                <td><%= row.type %></td>
                 <td><img class="img-flag" src="https://upload.wikimedia.org/wikipedia/en/9/9a/Flag_of_Spain.svg"
                         alt="Flag_of_Spain"> <%= row.host %></td>
                 <td><img class="img-flag" src="https://upload.wikimedia.org/wikipedia/en/b/be/Flag_of_England.svg"

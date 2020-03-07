@@ -137,3 +137,7 @@ a:hover{
   width: 400px;
   text-align: center;
 }
+
+.forecast-type-coef{
+  width: 70px;
+}

@@ -5,6 +5,7 @@ var FootballSchema = new mongoose.Schema({
     guest: String,
     coef: Number,
     forecast: String,
+    type: String,
     result: Boolean,
     date: { type: Date, default: Date.now }
 });

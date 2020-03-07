@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-var HockeySchema = new mongoose.Schema({
+var HotHockeySchema = new mongoose.Schema({
     host: String,
     guest: String,
     coef: Number,
@@ -10,4 +10,4 @@ var HockeySchema = new mongoose.Schema({
     date: { type: Date, default: Date.now }
 });
 
-module.exports = mongoose.model("Hockey", HockeySchema);
+module.exports = mongoose.model("Hot_hockey", HotHockeySchema);
